@@ -1,6 +1,6 @@
 {
-    "name": "spatie/spoon",
-    "description": "Our simple Laravel boilerplate.",
+    "name": "spatie/scheduled-tweets-app",
+    "description": "A simple app to scheduled tweets.",
     "keywords": [
         "spatie",
         "framework",
