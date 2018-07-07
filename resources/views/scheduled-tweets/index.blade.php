@@ -1,5 +1,36 @@
-@component('layouts.app')
-    <header class="flex items-center justify-center min-h-screen">
-        <span class="text-4xl">Scheduled-tweets</span>
-    </header>
-@endcomponent
+@extends('layouts.app')
+
+@section('content')
+
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Some text
+                </div>
+                <div class="col">
+                    Some text
+                </div>
+                <div class="col">
+                    Some text
+                </div>
+                <div class="col">
+                    Some text
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    Some text
+                </div>
+                <div class="col">
+                    Some text
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+@endsection

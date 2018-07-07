@@ -1,0 +1,22 @@
+.flex,
+.row {
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.col {
+    flex: 1;
+    padding: 10px;
+}
+
+.section {
+    padding: 30px;
+}
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}

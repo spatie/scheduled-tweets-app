@@ -1,0 +1,8 @@
+.form-label {
+    @apply font-hairline text-grey-darker block mb-2;
+}
+
+.form-input {
+    @apply block appearance-none w-full bg-white border border-grey-light px-2 py-2 rounded shadow;
+}
+
