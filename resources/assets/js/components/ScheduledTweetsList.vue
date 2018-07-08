@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div v-if="scheduledTweets.length">
+
         <table>
             <tr>
                 <th>Text</th>
@@ -14,7 +15,9 @@
                 <td><button @click="$emit('delete', scheduledTweet.id)">Delete</button></td>
             </tr>
         </table>
-
+    </div>
+    <div v-else>
+        No tweets scheduled yet
     </div>
 </template>
 
