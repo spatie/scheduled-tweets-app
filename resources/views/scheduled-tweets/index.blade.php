@@ -3,6 +3,8 @@
 @section('content')
 
 
+    <scheduled-tweets></scheduled-tweets>
+
     <div class="section bg-grey-lighter h-screen">
         <div class="container">
             <div class="row">
