@@ -31,7 +31,6 @@ class ScheduledTweetsController extends Controller
             'scheduled_for' => $validated['scheduledFor'],
         ]);
 
-
         return new ScheduledTweetResource($scheduledTweet);
     }
 
