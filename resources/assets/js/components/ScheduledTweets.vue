@@ -1,32 +1,20 @@
 <template>
     <div>
-        <table>
-            <tr>
-                <th>Text</th>
-                <th>Scheduled for</th>
-                <th>Sent at</th>
-                <th></th>
-            </tr>
-            <tr v-for="scheduledTweet in sortedScheduledTweets">
-                <td>{{ scheduledTweet.text }}</td>
-                <td>{{ scheduledTweet.scheduledFor }}</td>
-                <td>{{ scheduledTweet.sentAt }}</td>
-                <td><button @click="deleteScheduledTweet(scheduledTweet)">Delete</button></td>
-            </tr>
-        </table>
-
+        <ScheduledTweetsList
+          :scheduled-tweets="scheduledTweets"
+          @delete="deleteScheduledTweet"
+        ></ScheduledTweetsList>
     </div>
 </template>
 
 <script>
     import api from '../api';
     import { sortBy } from 'lodash';
+    import ScheduledTweetsList from './ScheduledTweetsList';
 
     export default {
-        computed: {
-            sortedScheduledTweets() {
-                return sortBy(this.scheduledTweets, 'scheduledFor').reverse();
-            }
+        components: {
+            ScheduledTweetsList,
         },
 
         data() {
@@ -36,21 +24,19 @@
         },
 
         async created() {
-            const response = await api.getScheduledTweets();
-
-            this.scheduledTweets = response.data.data;
+            this.scheduledTweets = await api.getScheduledTweets();
         },
 
         methods: {
-            deleteScheduledTweet(scheduledTweet) {
-                const toBeDeletedId = scheduledTweet.id
+            async addScheduledTweet(attributes) {
 
-                this.scheduledTweets = this.scheduledTweets.filter(scheduledTweet => scheduledTweet.id !== toBeDeletedId);
+            },
 
-                api.deleteScheduledTweet(toBeDeletedId);
-            }
+            deleteScheduledTweet(scheduledTweetId) {
+                this.scheduledTweets = this.scheduledTweets.filter(scheduledTweet => scheduledTweet.id !== scheduledTweetId);
+
+                api.deleteScheduledTweet(scheduledTweetId);
+            },
         }
-
-
     }
 </script>
