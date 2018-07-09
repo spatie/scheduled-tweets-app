@@ -27,6 +27,8 @@
         <main>
             @yield('content')
         </main>
+
+        <portal-target name="modals"></portal-target>
     </div>
 </body>
 </html>
