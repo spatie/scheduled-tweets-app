@@ -11,6 +11,10 @@ export default new Vuex.Store({
             state.scheduledTweets = scheduledTweets;
         },
 
+        addScheduledTweet(state, scheduledTweet) {
+            state.scheduledTweets.push(scheduledTweet);
+        },
+
         deleteScheduledTweet(state, deletedScheduledTweet) {
             state.scheduledTweets = state.scheduledTweets.filter(
                 scheduledTweet => scheduledTweet.id !== deletedScheduledTweet.id

@@ -54,7 +54,6 @@ export default {
         });
 
         this.$once('hook:beforeDestroy', () => {
-            console.log('removing listener');
             document.removeEventListener('keydown', listener);
         });
     },
