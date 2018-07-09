@@ -20,43 +20,43 @@
 </template>
 
 <script>
-    import store from '../store'
+import store from '../store';
 
-    export default {
-        props: ['show', 'scheduledTweet'],
-        methods: {
-            cancel() {
-                this.$emit("close")
+export default {
+    props: ['show', 'scheduledTweet'],
+    methods: {
+        cancel() {
+            this.$emit('close');
+        },
+        confirmDelete() {
+            store.dispatch('deleteScheduledTweet', this.scheduledTweet);
+
+            this.$emit('close');
+        },
+    },
+    watch: {
+        show: {
+            immediate: true,
+            handler: show => {
+                if (show) {
+                    document.body.style.setProperty('overflow', 'hidden');
+                } else {
+                    document.body.style.removeProperty('overflow');
+                }
             },
-            confirmDelete() {
-                store.dispatch('deleteScheduledTweet', this.scheduledTweet);
-
-                this.$emit("close");
-            }
         },
-        watch: {
-            show: {
-                immediate: true,
-                handler: show => {
-                    if (show) {
-                        document.body.style.setProperty("overflow", "hidden")
-                    } else {
-                        document.body.style.removeProperty("overflow")
-                    }
-                }
+    },
+    created() {
+        const listener = document.addEventListener('keydown', e => {
+            if (this.show && e.keyCode === 27) {
+                this.cancel();
             }
-        },
-        created() {
-            const listener = document.addEventListener("keydown", e => {
-                if (this.show && e.keyCode === 27) {
-                    this.cancel()
-                }
-            })
+        });
 
-            this.$once("hook:beforeDestroy", () => {
-                console.log("removing listener")
-                document.removeEventListener("keydown", listener)
-            })
-        }
-    }
+        this.$once('hook:beforeDestroy', () => {
+            console.log('removing listener');
+            document.removeEventListener('keydown', listener);
+        });
+    },
+};
 </script>

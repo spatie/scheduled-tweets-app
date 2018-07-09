@@ -16,17 +16,17 @@
 </template>
 
 <script>
-    import ConfirmDeleteModal from "./ConfirmDeleteModal"
+import ConfirmDeleteModal from './ConfirmDeleteModal';
 
-    export default {
-        components: {
-            ConfirmDeleteModal
-        },
-        props: ['scheduledTweet'],
-        data() {
-            return {
-                modalOpen: false
-            }
-        }
-    }
+export default {
+    components: {
+        ConfirmDeleteModal,
+    },
+    props: ['scheduledTweet'],
+    data() {
+        return {
+            modalOpen: false,
+        };
+    },
+};
 </script>

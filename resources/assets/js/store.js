@@ -12,8 +12,10 @@ export default new Vuex.Store({
         },
 
         deleteScheduledTweet(state, deletedScheduledTweet) {
-            state.scheduledTweets = state.scheduledTweets.filter(scheduledTweet => scheduledTweet.id !== deletedScheduledTweet.id);
-        }
+            state.scheduledTweets = state.scheduledTweets.filter(
+                scheduledTweet => scheduledTweet.id !== deletedScheduledTweet.id
+            );
+        },
     },
 
     actions: {
@@ -24,9 +26,9 @@ export default new Vuex.Store({
         },
 
         deleteScheduledTweet({ commit }, scheduledTweet) {
-            api.deleteScheduledTweet(scheduledTweet.id)
+            api.deleteScheduledTweet(scheduledTweet.id);
 
-            commit('deleteScheduledTweet', scheduledTweet)
-        }
-    }
+            commit('deleteScheduledTweet', scheduledTweet);
+        },
+    },
 });

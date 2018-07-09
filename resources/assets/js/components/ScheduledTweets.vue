@@ -24,23 +24,23 @@
 </template>
 
 <script>
-    import { sortBy } from 'lodash';
-    import DeleteTweetButton from './DeleteTweetButton';
-    import store from '../store';
+import { sortBy } from 'lodash';
+import DeleteTweetButton from './DeleteTweetButton';
+import store from '../store';
 
-    export default {
-        components: {
-            DeleteTweetButton,
-        },
+export default {
+    components: {
+        DeleteTweetButton,
+    },
 
-        created() {
-            store.dispatch('loadScheduledTweets');
-        },
+    created() {
+        store.dispatch('loadScheduledTweets');
+    },
 
-        computed: {
-            sortedScheduledTweets() {
-                return sortBy(store.state.scheduledTweets, 'scheduledFor').reverse();
-            }
+    computed: {
+        sortedScheduledTweets() {
+            return sortBy(store.state.scheduledTweets, 'scheduledFor').reverse();
         },
-    }
+    },
+};
 </script>
