@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AddTweetButton></AddTweetButton>
+        <AddTweetForm></AddTweetForm>
 
         <div v-if="sortedScheduledTweets.length">
 
@@ -35,13 +35,13 @@
 
 <script>
     import {sortBy} from 'lodash';
-    import AddTweetButton from './AddTweetButton';
+    import AddTweetForm from './AddTweetForm';
     import DeleteTweetButton from './DeleteTweetButton';
     import store from '../store';
 
     export default {
         components: {
-            AddTweetButton,
+            AddTweetForm,
             DeleteTweetButton,
         },
 
