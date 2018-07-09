@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+    margin: 20px auto;
+}
+
+table,
+td,
+th {
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    @apply font-black border-b;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+.row-text {
+    width: 50%;
+}
+
+.row-scheduled-at {
+    width: 20%;
+}
+
+.row-sent-at {
+    width: 20%;
+}

@@ -1,7 +1,7 @@
 <template>
     <button
       type="button"
-      class="hover:underline"
+      class="btn btn-blue"
       @click="modalOpen = true"
     >
         Add tweet

@@ -2,25 +2,31 @@
     <div class="modal-backdrop" v-show="show">
         <div class="modal">
 
-            <label for="account">Account</label>
-            <input id="account" name="account" type="text" v-model="form.account">
-            <div
-                 v-if="form.errors.has('account')"
-                 v-text="form.errors.get('account')[0]">
+            <div class="mb-4">
+                <label class="form-label" for="account">Account</label>
+                <input class="form-input" id="account" name="account" type="text" v-model="form.account">
+                <div
+                  v-if="form.errors.has('account')"
+                  v-text="form.errors.get('account')[0]">
+                </div>
             </div>
 
-            <label for="text">Text</label>
-            <input id="text" name="text" type="text" v-model="form.text">
-            <div
-                v-if="form.errors.has('text')"
-                v-text="form.errors.get('text')[0]">
+            <div class="mb-4">
+                <label class="form-label" for="text">Text</label>
+                <input class="form-input" id="text" name="text" type="text" v-model="form.text">
+                <div
+                  v-if="form.errors.has('text')"
+                  v-text="form.errors.get('text')[0]">
+                </div>
             </div>
 
-            <label for="scheduledFor">Scheduled for</label>
-            <input  id="scheduledFor" name="scheduledFor" type="text" v-model="form.scheduledFor">
-            <div
-                v-if="form.errors.has('scheduledFor')"
-                v-text="form.errors.get('scheduledFor')[0]">
+            <div class="mb-4">
+                <label class="form-label" for="scheduledFor">Scheduled for</label>
+                <input class="form-input" id="scheduledFor" name="scheduledFor" type="text" v-model="form.scheduledFor">
+                <div
+                  v-if="form.errors.has('scheduledFor')"
+                  v-text="form.errors.get('scheduledFor')[0]">
+                </div>
             </div>
 
             <div class="text-center">
@@ -28,9 +34,9 @@
                     Cancel
                 </button>
                 <button
-                    @click="save"
-                    type="button"
-                    class="btn"
+                  @click="save"
+                  type="button"
+                  class="btn"
                 >
                     Save
                 </button>
@@ -49,9 +55,9 @@
         data() {
             return {
                 form: new Form({
-                   account: '',
-                   text: '',
-                   scheduledFor: ''
+                    account: '',
+                    text: '',
+                    scheduledFor: ''
                 }),
             }
         },

@@ -4,13 +4,16 @@
 
         <div v-if="sortedScheduledTweets.length">
 
-            <table>
+            <table class="table">
+                <thead>
                 <tr>
-                    <th>Text</th>
-                    <th>Scheduled for</th>
-                    <th>Sent at</th>
+                    <th class="row-text">Text</th>
+                    <th class="row-scheduled-at">Scheduled for</th>
+                    <th class="row-sent-at">Sent at</th>
                     <th></th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr v-for="scheduledTweet in sortedScheduledTweets">
                     <td>{{ scheduledTweet.text }}</td>
                     <td>{{ scheduledTweet.scheduledFor }}</td>
@@ -21,6 +24,7 @@
                         ></DeleteTweetButton>
                     </td>
                 </tr>
+                </tbody>
             </table>
         </div>
         <div v-else>

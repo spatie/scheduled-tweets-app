@@ -1,7 +1,7 @@
 <template>
     <button
       type="button"
-      class="text-red-dark hover:underline"
+      class="btn btn-red"
       @click="modalOpen = true"
     >
         Delete
