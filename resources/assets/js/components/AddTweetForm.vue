@@ -52,33 +52,34 @@
 </template>
 
 <script>
-    import store from '../store';
-    import Form from 'form-backend-validation';
-    import moment from 'moment';
+import store from '../store';
+import Form from 'form-backend-validation';
+import moment from 'moment';
 
-    export default {
-        props: ['accounts'],
+export default {
+    props: ['accounts'],
 
-        data() {
-            return {
-                form: new Form({
-                    account: '',
-                    text: '',
-                    scheduledFor: moment().add(1, 'days').format('YYYY-MM-DD HH:mm:ss')
-                }),
-            }
+    data() {
+        return {
+            form: new Form({
+                account: '',
+                text: '',
+                scheduledFor: moment()
+                    .add(1, 'days')
+                    .format('YYYY-MM-DD HH:mm:ss'),
+            }),
+        };
+    },
+    methods: {
+        cancel() {
+            this.$emit('close');
         },
-        methods: {
-            cancel() {
-                this.$emit('close');
-            },
-            async createScheduledTweet() {
-                console.log('save');
-                const response = await this.form.post('/api/scheduled-tweets')
+        async createScheduledTweet() {
+            console.log('save');
+            const response = await this.form.post('/api/scheduled-tweets');
 
-                store.commit('addScheduledTweet', response.data);
-
-            },
+            store.commit('addScheduledTweet', response.data);
         },
-    }
+    },
+};
 </script>
