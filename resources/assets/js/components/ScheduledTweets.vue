@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AddTweetForm></AddTweetForm>
+        <AddTweetForm :accounts="accounts"></AddTweetForm>
 
         <div v-if="sortedScheduledTweets.length">
 
@@ -44,6 +44,8 @@
             AddTweetForm,
             DeleteTweetButton,
         },
+
+        props: ['accounts'],
 
         created() {
             store.dispatch('loadScheduledTweets');

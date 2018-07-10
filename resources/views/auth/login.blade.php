@@ -5,7 +5,7 @@
         <div class="container h-full flex justify-center items-center">
 
             <div>
-                <h1 class="font-hairline text-xl mb-6 text-center">{{ __('Login') }}</h1>
+                <h1 class="font-hairline text-xl mb-6 text-center">Scheduled Tweets login</h1>
 
                 <div class="border-teal p-8 border-t-12 bg-white mb-6 rounded-lg shadow-lg">
                     <div>

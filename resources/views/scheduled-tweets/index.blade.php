@@ -6,7 +6,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <scheduled-tweets></scheduled-tweets>
+                    <scheduled-tweets
+                        :accounts=@json(['fullstackantwerp'])
+                    ></scheduled-tweets>
                 </div>
             </div>
         </div>
