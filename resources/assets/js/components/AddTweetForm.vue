@@ -17,6 +17,7 @@
                 <label class="form-label-aside" for="account">Account</label>
                 <select
                   id="account"
+                  v-model="form.account"
                   class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight">
                     <option v-for="account in accounts">
                         {{ account }}
@@ -62,7 +63,7 @@ export default {
     data() {
         return {
             form: new Form({
-                account: '',
+                account: this.accounts[0],
                 text: '',
                 scheduledFor: moment()
                     .add(1, 'days')
