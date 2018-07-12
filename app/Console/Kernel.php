@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('tweet-scheduled-tweets')->hourly();
+        $schedule->command('tweet-scheduled-tweets')->everyMinute();
     }
 
     protected function commands()

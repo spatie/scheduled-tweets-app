@@ -13,7 +13,7 @@
         </div>
 
         <div class="flex">
-            <div class="mb-4">
+            <div class="">
                 <label class="form-label-aside" for="account">Account</label>
                 <select
                   id="account"
@@ -40,15 +40,15 @@
                   v-text="form.errors.get('scheduledFor')[0]">
                 </div>
             </div>
-        </div>
 
-        <button
-          type="button"
-          class="btn btn-blue"
-          @click="createScheduledTweet"
-        >
-            Create scheduled tweet
-        </button>
+            <button
+              type="button"
+              class="btn btn-blue"
+              @click="createScheduledTweet"
+            >
+                Create scheduled tweet
+            </button>
+        </div>
     </div>
 </template>
 
