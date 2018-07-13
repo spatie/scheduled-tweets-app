@@ -3,36 +3,34 @@ import api from './api';
 
 export default new Vuex.Store({
     state: {
-        scheduledTweets: [],
+        tweets: [],
     },
 
     mutations: {
-        loadScheduledTweets(state, scheduledTweets) {
-            state.scheduledTweets = scheduledTweets;
+        loadTweets(state, tweets) {
+            state.tweets = tweets;
         },
 
-        addScheduledTweet(state, scheduledTweet) {
-            state.scheduledTweets.push(scheduledTweet);
+        addTweet(state, tweet) {
+            state.tweets.push(tweet);
         },
 
-        deleteScheduledTweet(state, deletedScheduledTweet) {
-            state.scheduledTweets = state.scheduledTweets.filter(
-                scheduledTweet => scheduledTweet.id !== deletedScheduledTweet.id
-            );
+        deleteTweet(state, deletedTweet) {
+            state.tweets = state.tweets.filter(tweet => tweet.id !== deletedTweet.id);
         },
     },
 
     actions: {
-        async loadScheduledTweets({ commit }) {
-            const scheduledTweets = await api.getScheduledTweets();
+        async loadTweets({ commit }) {
+            const tweets = await api.getScheduledTweets();
 
-            commit('loadScheduledTweets', scheduledTweets);
+            commit('loadTweets', tweets);
         },
 
-        deleteScheduledTweet({ commit }, scheduledTweet) {
-            api.deleteScheduledTweet(scheduledTweet.id);
+        deleteTweet({ commit }, tweet) {
+            api.deleteTweet(tweet.id);
 
-            commit('deleteScheduledTweet', scheduledTweet);
+            commit('deleteTweet', tweet);
         },
     },
 });

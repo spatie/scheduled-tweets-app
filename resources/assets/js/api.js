@@ -1,15 +1,15 @@
 export default {
     async getScheduledTweets() {
-        const response = await axios.get('api/scheduled-tweets');
+        const response = await axios.get('api/tweets');
 
         return response.data.data;
     },
 
     createScheduledTweet(attributes) {
-        return axios.post('api/scheduled-tweets', attributes);
+        return axios.post('api/tweets', attributes);
     },
 
-    deleteScheduledTweet(scheduledTweetId) {
-        return axios.delete(`api/scheduled-tweets/${scheduledTweetId}`);
+    deleteTweet(scheduledTweetId) {
+        return axios.delete(`api/tweets/${scheduledTweetId}`);
     },
 };

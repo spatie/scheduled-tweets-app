@@ -3,7 +3,7 @@
 }
 
 .form-label-aside {
-    @apply font-hairline text-grey-darker mb-2;
+    @apply font-hairline text-grey-darker mb-2 text-xs;
 }
 
 .form-input {
@@ -12,4 +12,8 @@
 
 .tweet-box {
     resize: none;
+}
+
+.validation-error {
+    @apply bg-red-lightest px-4 py-3 text-red-dark;
 }

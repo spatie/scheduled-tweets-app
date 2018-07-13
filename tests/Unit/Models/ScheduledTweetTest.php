@@ -3,14 +3,14 @@
 namespace Tests\Unit\Models;
 
 use App\Exceptions\CouldNotTweet;
-use App\Models\ScheduledTweet;
+use App\Models\Tweet;
 use App\Services\Twitter\Facades\Twitter;
 use Tests\TestCase;
 
 class ScheduledTweetTest extends TestCase
 {
-    /** @var \App\Models\ScheduledTweet */
-    protected $scheduledTweet;
+    /** @var \App\Models\Tweet */
+    protected $tweet;
 
     public function setUp()
     {
@@ -18,7 +18,7 @@ class ScheduledTweetTest extends TestCase
 
         Twitter::fake();
 
-        $this->scheduledTweet = factory(ScheduledTweet::class)->create([
+        $this->scheduledTweet = factory(Tweet::class)->create([
             'scheduled_for' => now()->subDay(),
         ]);
     }

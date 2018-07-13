@@ -1,5 +1,5 @@
 <?php
 
-Route::get('scheduled-tweets', 'ScheduledTweetsController@index');
-Route::post('scheduled-tweets', 'ScheduledTweetsController@store');
-Route::delete('scheduled-tweets/{scheduledTweet}', 'ScheduledTweetsController@delete');
+Route::get('tweets', 'TweetsController@index');
+Route::post('tweets', 'TweetsController@store');
+Route::delete('tweets/{tweet}', 'TweetsController@delete');

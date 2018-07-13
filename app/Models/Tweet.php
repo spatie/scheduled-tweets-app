@@ -7,7 +7,7 @@ use App\Services\Twitter\Facades\Twitter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class ScheduledTweet extends Model
+class Tweet extends Model
 {
     public $guarded = [];
 

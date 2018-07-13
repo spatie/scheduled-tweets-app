@@ -5,11 +5,9 @@
     <div class="section bg-grey-lighter h-screen">
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <scheduled-tweets
+                <tweet-list
                         :accounts=@json(['fullstackantwerp'])
-                    ></scheduled-tweets>
-                </div>
+                ></tweet-list>
             </div>
         </div>
     </div>

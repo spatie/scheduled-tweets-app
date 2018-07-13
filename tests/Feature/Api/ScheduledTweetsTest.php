@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Api;
 
-use App\Models\ScheduledTweet;
+use App\Models\Tweet;
 use Tests\TestCase;
 
 class ScheduledTweetsTest extends TestCase
@@ -19,10 +19,10 @@ class ScheduledTweetsTest extends TestCase
     /** @test */
     public function it_can_list_all_scheduled_tweets()
     {
-        factory(ScheduledTweet::class, 10)->create();
+        factory(Tweet::class, 10)->create();
 
         $this
-            ->getJson('/api/scheduled-tweets')
+            ->getJson('/api/tweets')
             ->assertSuccessful()
             ->assertJsonCount(10, 'data');
     }
@@ -30,27 +30,27 @@ class ScheduledTweetsTest extends TestCase
     /** @test */
     public function it_can_create_a_scheduled_tweet()
     {
-        $scheduledTweetAttributes = [
+        $tweetAttributes = [
             'account' => 'testAccount',
             'text' => 'text tweet',
             'scheduledFor' => now()->addHour()->format('Y-m-d H:i:s'),
         ];
 
         $this
-            ->postJson('/api/scheduled-tweets', $scheduledTweetAttributes)
+            ->postJson('/api/tweets', $tweetAttributes)
             ->assertSuccessful()
-            ->assertJsonFragment($scheduledTweetAttributes);
+            ->assertJsonFragment($tweetAttributes);
     }
 
     /** @test */
     public function it_can_delete_a_scheduled_tweet()
     {
-        $scheduledTweet = factory(ScheduledTweet::class)->create();
+        $tweet = factory(Tweet::class)->create();
 
         $this
-            ->deleteJson("/api/scheduled-tweets/{$scheduledTweet->id}")
+            ->deleteJson("/api/tweets/{$tweet->id}")
             ->assertSuccessful();
 
-        $this->assertCount(0, ScheduledTweet::get());
+        $this->assertCount(0, Tweet::get());
     }
 }

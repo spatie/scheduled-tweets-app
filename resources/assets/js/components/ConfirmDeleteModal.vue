@@ -23,13 +23,13 @@
 import store from '../store';
 
 export default {
-    props: ['show', 'scheduledTweet'],
+    props: ['show', 'tweet'],
     methods: {
         cancel() {
             this.$emit('close');
         },
         confirmDelete() {
-            store.dispatch('deleteScheduledTweet', this.scheduledTweet);
+            store.dispatch('deleteTweet', this.tweet);
 
             this.$emit('close');
         },

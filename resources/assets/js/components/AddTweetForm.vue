@@ -1,19 +1,21 @@
 <template>
     <div>
 
-        <div class="mb-4">
-            <label class="form-label" for="text">Text</label>
+        <div class="row">
             <textarea class="form-input tweet-box" rows="4" cols="65" placeholder="What's happening?" id="text"
                       name="text" type="text" v-model="form.text"/>
-
-            <div
-              v-if="form.errors.has('text')"
-              v-text="form.errors.get('text')[0]">
+            <div>
+                {{ this.charactersLeft }}
             </div>
         </div>
 
-        <div class="flex">
-            <div class="">
+        <div class="row mt-2 validation-error"
+          v-if="form.errors.has('text')"
+          v-text="form.errors.get('text')[0]">
+        </div>
+
+        <div class="row mt-4">
+            <div class="mr-4">
                 <label class="form-label-aside" for="account">Account</label>
                 <select
                   id="account"
@@ -23,31 +25,31 @@
                         {{ account }}
                     </option>
                 </select>
-                <div class="pointer-events-none absolute pin-y pin-r flex items-center px-4 text-grey-darker">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                    </svg>
-                </div>
             </div>
 
-            <div class="mb-4">
+            <div class="mr-4">
                 <label class="form-label-aside" for="scheduledFor">Scheduled for</label>
                 <input class="form-input" placeholder="YYYY-MM-DD hh:mm:ss" id="scheduledFor" name="scheduledFor"
                        type="text" v-model="form.scheduledFor">
 
-                <div
+                <div class="mt-2 validation-error"
                   v-if="form.errors.has('scheduledFor')"
                   v-text="form.errors.get('scheduledFor')[0]">
                 </div>
             </div>
 
-            <button
-              type="button"
-              class="btn btn-blue"
-              @click="createScheduledTweet"
-            >
-                Create scheduled tweet
-            </button>
+            <div class="flex-1"></div>
+                <div>
+                    <button
+                      type="button"
+                      class="btn btn-blue"
+                      @click="createScheduledTweet"
+                    >
+                        Create scheduled tweet
+                    </button>
+                </div>
+
+
         </div>
     </div>
 </template>
@@ -59,6 +61,12 @@ import moment from 'moment';
 
 export default {
     props: ['accounts'],
+
+    computed: {
+        charactersLeft() {
+            return 280 - this.form.text.length;
+        },
+    },
 
     data() {
         return {
@@ -77,9 +85,9 @@ export default {
         },
         async createScheduledTweet() {
             console.log('save');
-            const response = await this.form.post('/api/scheduled-tweets');
+            const response = await this.form.post('/api/tweets');
 
-            store.commit('addScheduledTweet', response.data);
+            store.commit('addTweet', response.data);
         },
     },
 };

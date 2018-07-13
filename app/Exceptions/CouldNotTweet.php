@@ -2,13 +2,13 @@
 
 namespace App\Exceptions;
 
-use App\Models\ScheduledTweet;
+use App\Models\Tweet;
 use Exception;
 
 class CouldNotTweet extends Exception
 {
-    public static function tweetWasAlreadySent(ScheduledTweet $scheduledTweet)
+    public static function tweetWasAlreadySent(Tweet $tweet)
     {
-        return new static("Could not send tweet `{$scheduledTweet->text}` to `{$scheduledTweet->account}` because the tweet was already sent at {$scheduledTweet->tweeted_at->format('Y-m-d H:i:s')}");
+        return new static("Could not send tweet `{$tweet->text}` to `{$tweet->account}` because the tweet was already sent at {$tweet->tweeted_at->format('Y-m-d H:i:s')}");
     }
 }

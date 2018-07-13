@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\ScheduledTweet;
+use App\Models\Tweet;
 use Faker\Generator as Faker;
 
-$factory->define(ScheduledTweet::class, function (Faker $faker) {
+$factory->define(Tweet::class, function (Faker $faker) {
     return [
         'account' => $faker->word,
         'text' => $faker->text,

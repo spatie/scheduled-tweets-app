@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\ScheduledTweet;
+use App\Models\Tweet;
 use Illuminate\Console\Command;
 
 class TweetScheduledTweetsCommand extends Command
@@ -15,10 +15,10 @@ class TweetScheduledTweetsCommand extends Command
     {
         $this->info('Sending scheduled tweets...');
 
-        $scheduledTweets = ScheduledTweet::notTweetedYet()->get()
+        $tweets = Tweet::notTweetedYet()->get()
             ->filter->shouldBeTweeted()
             ->each->tweet();
 
-        $this->info('Tweeted ' . $scheduledTweets->count() . ' scheduled tweet(s)!');
+        $this->info('Tweeted ' . $tweets->count() . ' scheduled tweet(s)!');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Commands;
 
-use App\Models\ScheduledTweet;
+use App\Models\Tweet;
 use App\Services\Twitter\Facades\Twitter;
 use Tests\TestCase;
 
@@ -18,15 +18,15 @@ class SendScheduledTweetsCommandTest extends TestCase
     /** @test */
     public function it_will_tweet_schedule_tweets_that_should_be_tweeted_and_have_not_been_tweeted_yet()
     {
-        $shouldBeTweeted = factory(ScheduledTweet::class)->create([
+        $shouldBeTweeted = factory(Tweet::class)->create([
             'scheduled_for' => now()->subMinute(),
         ]);
 
-        $futureTweet = factory(ScheduledTweet::class)->create([
+        $futureTweet = factory(Tweet::class)->create([
             'scheduled_for' => now()->addMinute(),
         ]);
 
-        $alreadyTweeted = factory(ScheduledTweet::class)->create([
+        $alreadyTweeted = factory(Tweet::class)->create([
             'tweeted_at' => now(),
         ]);
 

@@ -9,7 +9,7 @@
             <confirm-delete-modal
               :show="modalOpen"
               @close="modalOpen = false"
-              :scheduled-tweet="scheduledTweet"
+              :tweet="tweet"
             ></confirm-delete-modal>
         </portal>
     </button>
@@ -22,7 +22,7 @@ export default {
     components: {
         ConfirmDeleteModal,
     },
-    props: ['scheduledTweet'],
+    props: ['tweet'],
     data() {
         return {
             modalOpen: false,
