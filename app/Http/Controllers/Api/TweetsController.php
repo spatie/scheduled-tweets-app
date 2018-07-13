@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ScheduledTweetResource;
+use App\Http\Resources\TweetResource;
 use App\Models\Tweet;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +14,7 @@ class TweetsController extends Controller
     {
         $tweets = Tweet::orderBy('scheduled_for')->get();
 
-        return ScheduledTweetResource::collection($tweets);
+        return TweetResource::collection($tweets);
     }
 
     public function store(Request $request)
@@ -31,7 +31,7 @@ class TweetsController extends Controller
             'scheduled_for' => $validated['scheduledFor'],
         ]);
 
-        return new ScheduledTweetResource($tweet);
+        return new TweetResource($tweet);
     }
 
     public function delete(Tweet $tweet)

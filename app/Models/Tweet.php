@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\TweetTweeted;
 use App\Exceptions\CouldNotTweet;
 use App\Services\Twitter\Facades\Twitter;
 use Illuminate\Database\Eloquent\Builder;
@@ -32,6 +33,8 @@ class Tweet extends Model
         }
 
         Twitter::account($this->account)->tweet($this->text);
+
+        event(new TweetTweeted($this));
 
         $this->markAsTweeted();
     }

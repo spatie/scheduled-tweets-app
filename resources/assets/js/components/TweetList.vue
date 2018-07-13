@@ -4,7 +4,6 @@
 
         <div v-if="sortedTweets.length">
             <div class="mt-8">
-                <h2>Scheduled tweets</h2>
                 <table class="table">
                     <thead>
                     <tr>
