@@ -26,6 +26,6 @@ class TweetTweeted implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return new PrivateChannel('scheduled-tweets');
+        return new PrivateChannel('tweets');
     }
 }

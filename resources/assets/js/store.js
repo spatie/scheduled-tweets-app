@@ -1,5 +1,6 @@
 import Vuex from 'vuex';
 import api from './api';
+import { remove } from 'lodash';
 
 export default new Vuex.Store({
     state: {
@@ -13,6 +14,12 @@ export default new Vuex.Store({
 
         addTweet(state, tweet) {
             state.tweets.push(tweet);
+        },
+
+        updateTweet(state, updatedTweet) {
+              state.tweets = remove(state.tweets, tweet => tweet.id === updatedTweet.id);
+
+              state.tweets.push(updatedTweet);
         },
 
         deleteTweet(state, deletedTweet) {

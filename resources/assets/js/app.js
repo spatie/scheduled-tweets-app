@@ -12,3 +12,5 @@ Vue.component('tweet-list', require('./components/TweetList.vue'));
 const app = new Vue({
     el: '#app',
 });
+
+require('./echo');
