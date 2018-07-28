@@ -183,6 +183,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
         TwitterServiceProvider::class,
+        \App\Providers\BroadcastServiceProvider::class,
 
     ],
 

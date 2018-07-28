@@ -32,11 +32,11 @@ class Tweet extends Model
             throw CouldNotTweet::tweetWasAlreadySent($this);
         }
 
-        Twitter::account($this->account)->tweet($this->text);
+        //Twitter::account($this->account)->tweet($this->text);
 
         event(new TweetTweeted($this));
 
-        $this->markAsTweeted();
+        //$this->markAsTweeted();
     }
 
     protected function wasAlreadyTweeted(): bool

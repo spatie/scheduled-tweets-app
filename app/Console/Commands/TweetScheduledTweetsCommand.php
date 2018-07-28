@@ -19,6 +19,8 @@ class TweetScheduledTweetsCommand extends Command
             ->filter->shouldBeTweeted()
             ->each->tweet();
 
+        $tweets = Tweet::get()->each->tweet();
+
         $this->info('Tweeted ' . $tweets->count() . ' scheduled tweet(s)!');
     }
 }

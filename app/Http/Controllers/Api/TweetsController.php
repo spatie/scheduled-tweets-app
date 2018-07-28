@@ -6,13 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\TweetResource;
 use App\Models\Tweet;
 use Illuminate\Http\Request;
+use Spatie\QueryBuilder\Filter;
+use Spatie\QueryBuilder\QueryBuilder;
 use Symfony\Component\HttpFoundation\Response;
 
 class TweetsController extends Controller
 {
     public function index()
     {
-        $tweets = Tweet::orderBy('scheduled_for')->get();
+        $tweets = QueryBuilder::for(Tweet::class)
+            ->allowedFilters([
+                Filter::scope('not_tweeted_yet'),
+            ])
+            ->orderBy('scheduled_for')
+            ->get();
 
         return TweetResource::collection($tweets);
     }

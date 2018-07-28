@@ -30,27 +30,27 @@
 </template>
 
 <script>
-import { sortBy } from 'lodash';
-import AddTweetForm from './AddTweetForm';
-import DeleteTweetButton from './DeleteTweetButton';
-import store from '../store';
+    import {sortBy} from 'lodash';
+    import AddTweetForm from './AddTweetForm';
+    import DeleteTweetButton from './DeleteTweetButton';
+    import store from '../store';
 
-export default {
-    components: {
-        AddTweetForm,
-        DeleteTweetButton,
-    },
-
-    props: ['accounts'],
-
-    created() {
-        store.dispatch('loadTweets');
-    },
-
-    computed: {
-        sortedTweets() {
-            return sortBy(store.state.tweets, 'scheduledFor').reverse();
+    export default {
+        components: {
+            AddTweetForm,
+            DeleteTweetButton,
         },
-    },
-};
+
+        props: ['accounts'],
+
+        created() {
+            store.dispatch('loadTweets');
+        },
+
+        computed: {
+            sortedTweets() {
+                return sortBy(store.state.tweets, 'scheduledFor').reverse();
+            },
+        },
+    };
 </script>

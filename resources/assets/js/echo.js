@@ -1,4 +1,5 @@
-import Echo from 'laravel-echo';
 import store from './store';
 
-window.Echo.channel('tweets').listen('TweetTweeted', event => store.updateTweet(event.tweet));
+window.Echo.private('tweets').listen('TweetTweeted', event => {
+    store.commit('deleteTweet', event.tweetId);
+});

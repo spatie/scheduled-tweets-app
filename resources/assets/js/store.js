@@ -16,14 +16,8 @@ export default new Vuex.Store({
             state.tweets.push(tweet);
         },
 
-        updateTweet(state, updatedTweet) {
-            state.tweets = remove(state.tweets, tweet => tweet.id === updatedTweet.id);
-
-            state.tweets.push(updatedTweet);
-        },
-
-        deleteTweet(state, deletedTweet) {
-            state.tweets = state.tweets.filter(tweet => tweet.id !== deletedTweet.id);
+        deleteTweet(state, tweetId) {
+            state.tweets = state.tweets.filter(tweet => tweet.id !== tweetId);
         },
     },
 
@@ -34,10 +28,10 @@ export default new Vuex.Store({
             commit('loadTweets', tweets);
         },
 
-        deleteTweet({ commit }, tweet) {
-            api.deleteTweet(tweet.id);
+        deleteTweet({ commit }, tweetId) {
+            api.deleteTweet(tweetId);
 
-            commit('deleteTweet', tweet);
+            commit('deleteTweet', tweetId);
         },
     },
 });

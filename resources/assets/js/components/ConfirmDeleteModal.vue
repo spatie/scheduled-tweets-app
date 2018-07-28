@@ -29,7 +29,7 @@ export default {
             this.$emit('close');
         },
         confirmDelete() {
-            store.dispatch('deleteTweet', this.tweet);
+            store.dispatch('deleteTweet', this.tweet.id);
             this.$flashNow('Tweet deleted!');
             this.$emit('close');
         },

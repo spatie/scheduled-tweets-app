@@ -15,11 +15,13 @@ class TweetTweeted implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /** @var array */
-    protected $tweet;
+    public $tweetId;
 
     public function __construct(Tweet $tweet)
     {
-        $this->tweet = (new TweetResource($tweet))->toArray();
+        echo 'broadcasting';
+
+        $this->tweetId = $tweet->id;
     }
 
     public function broadcastOn()

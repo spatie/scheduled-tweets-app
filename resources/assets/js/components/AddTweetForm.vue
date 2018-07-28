@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="flex max-w-xl">
+        <div class="flex max-w-lg">
             <textarea class="form-input tweet-box" rows="4" cols="65" placeholder="What's happening?" id="text"
                       name="text" type="text" v-model="form.text"/>
             <div class="col"></div>
         </div>
-        <div class="flex max-w-xl justify-end">
+        <div class="flex max-w-lg justify-end">
             {{ this.charactersLeft }}
         </div>
 
@@ -14,7 +14,7 @@
           v-text="form.errors.get('text')[0]">
         </div>
 
-        <div class="flex mt-4 max-w-xl">
+        <div class="flex mt-4 max-w-lg">
             <div class="mr-4">
                 <label class="form-label-aside" for="account">Account</label>
                 <select
@@ -48,8 +48,6 @@
                         Create scheduled tweet
                     </button>
                 </div>
-
-
         </div>
     </div>
 </template>

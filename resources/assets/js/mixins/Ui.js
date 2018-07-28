@@ -11,7 +11,6 @@ export default {
 
     methods: {
         $flashNow(message, level = 'success') {
-            console.log('showing message');
             this.$events.$emit('flashNow', { message, level });
         },
     },

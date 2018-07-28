@@ -1,6 +1,6 @@
 export default {
     async getScheduledTweets() {
-        const response = await axios.get('api/tweets');
+        const response = await axios.get('api/tweets?filter[not_tweeted_yet]');
 
         return response.data.data;
     },
