@@ -7,7 +7,7 @@
 }
 
 .form-input {
-    @apply block appearance-none w-full bg-white border border-grey-light px-2 py-2 rounded shadow;
+    @apply border-2 border-grey bg-white rounded p-4 w-full;
 }
 
 .tweet-box {

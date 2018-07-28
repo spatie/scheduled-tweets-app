@@ -1,0 +1,9 @@
+.alert {
+    @apply bg-green border border border-green text-white px-4 py-3;
+}
+
+.alert-flash {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+}

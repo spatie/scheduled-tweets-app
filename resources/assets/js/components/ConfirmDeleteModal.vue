@@ -30,7 +30,7 @@ export default {
         },
         confirmDelete() {
             store.dispatch('deleteTweet', this.tweet);
-
+            this.$flashNow('Tweet deleted!');
             this.$emit('close');
         },
     },

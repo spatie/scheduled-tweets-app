@@ -1,26 +1,26 @@
 <template>
     <div>
-
-        <div class="row">
+        <div class="flex max-w-xl">
             <textarea class="form-input tweet-box" rows="4" cols="65" placeholder="What's happening?" id="text"
                       name="text" type="text" v-model="form.text"/>
-            <div>
-                {{ this.charactersLeft }}
-            </div>
+            <div class="col"></div>
+        </div>
+        <div class="flex max-w-xl justify-end">
+            {{ this.charactersLeft }}
         </div>
 
-        <div class="row mt-2 validation-error"
+        <div class="flex mt-2 validation-error"
           v-if="form.errors.has('text')"
           v-text="form.errors.get('text')[0]">
         </div>
 
-        <div class="row mt-4">
+        <div class="flex mt-4 max-w-xl">
             <div class="mr-4">
                 <label class="form-label-aside" for="account">Account</label>
                 <select
                   id="account"
                   v-model="form.account"
-                  class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight">
+                  class="form-input h-full">
                     <option v-for="account in accounts">
                         {{ account }}
                     </option>
@@ -84,10 +84,11 @@ export default {
             this.$emit('close');
         },
         async createScheduledTweet() {
-            console.log('save');
             const response = await this.form.post('/api/tweets');
 
             store.commit('addTweet', response.data);
+
+            this.$flashNow('Tweet added!');
         },
     },
 };

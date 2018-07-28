@@ -40,3 +40,7 @@ svg {
 textarea {
     outline: none;
 }
+
+body {
+    font-family: 'Sunflower', sans-serif;
+}

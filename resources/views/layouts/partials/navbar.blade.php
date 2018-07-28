@@ -8,9 +8,6 @@
             <div class="col text-right">
                 <ul class="list-reset flex justify-end">
                     <li>
-                        {{ Auth::user()->name }}
-                    </li>
-                    <li>
                         <div class="pl-4">
                             <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">

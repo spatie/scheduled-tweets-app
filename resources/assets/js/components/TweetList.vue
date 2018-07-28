@@ -9,7 +9,6 @@
                     <tr>
                         <th class="row-text">Text</th>
                         <th class="row-scheduled-at">Scheduled for</th>
-                        <th class="row-tweeted-at">Tweeted at</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -17,7 +16,6 @@
                     <tr v-for="tweet in sortedTweets">
                         <td>{{ tweet.text }}</td>
                         <td>{{ tweet.scheduledFor }}</td>
-                        <td>{{ tweet.tweetedAt }}</td>
                         <td>
                             <DeleteTweetButton
                               :tweet="tweet"

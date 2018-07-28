@@ -22,7 +22,7 @@ if (token) {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
-import Echo from 'laravel-echo'
+import Echo from 'laravel-echo';
 
 if (process.env.MIX_PUSHER_APP_KEY) {
     window.Pusher = require('pusher-js');
@@ -34,7 +34,3 @@ if (process.env.MIX_PUSHER_APP_KEY) {
         encrypted: true,
     });
 }
-
-
-
-

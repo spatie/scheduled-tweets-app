@@ -17,9 +17,9 @@ export default new Vuex.Store({
         },
 
         updateTweet(state, updatedTweet) {
-              state.tweets = remove(state.tweets, tweet => tweet.id === updatedTweet.id);
+            state.tweets = remove(state.tweets, tweet => tweet.id === updatedTweet.id);
 
-              state.tweets.push(updatedTweet);
+            state.tweets.push(updatedTweet);
         },
 
         deleteTweet(state, deletedTweet) {
