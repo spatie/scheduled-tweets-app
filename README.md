@@ -4,7 +4,7 @@ This repo contains a Laravel app that allows to schedule tweets.
 
 ## Support us
 
-[![Image](https://github-ads.s3.eu-central-1.amazonaws.com/scheduled-tweets-app.jpg)](https://spatie.be/github-ad-click/scheduled-tweets-app)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/scheduled-tweets-app.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/scheduled-tweets-app)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
